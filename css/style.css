@@ -6,3 +6,12 @@
 nav>ul>li {
     padding-right:1rem;
 }
+
+.carousel-item img {
+    height:600px;
+    filter: brightness(30%);
+}
+
+.texto-carrusel {
+    font-family: 'Roboto', sans-serif;
+}
