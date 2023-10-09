@@ -227,7 +227,7 @@
                 <div class="col-lg p-0">
                     <img src="images/honolulu.jpg" alt="Honolulu" class="img-fluid">
                 </div>
-                <article class="col-lg bg-dark text-white p-4">
+                <article class="col-lg bg-dark text-white pt-4">
                     <span class="fs-3 fw-bold">Bs As - Octubre</span>
                     <p class="fs-6">Buenos Aires es la provincia y localidad mas grande del estado de Argentina. En los Estados
                         Unidos, Honolulu es la mas sureña de entre las principales ciudades estadounidenses. Aunque el
@@ -241,17 +241,38 @@
             </div>
         </section>
 
-        <section class="bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias quo sed exercitationem ducimus inventore accusantium labore, quasi veritatis perferendis eligendi ut, fugit, eius aperiam dolorum cupiditate maiores voluptate. Odit, possimus.
-        Blanditiis laboriosam saepe a molestias sequi, at assumenda vero. Ipsam incidunt laborum at magni libero aut, blanditiis iste, cupiditate corporis amet laboriosam ex. Laudantium temporibus blanditiis quae ullam vero quidem!
-        Eius sit at hic veritatis error nihil, asperiores nobis animi ducimus debitis autem ad aliquid officiis modi illum neque ab earum consectetur similique ratione, omnis laborum velit iste nam. Corrupti?
-        Iste consectetur similique quam pariatur eos, voluptatum optio nulla, possimus ratione quae sequi ducimus consequuntur voluptatem eligendi sapiente illo assumenda impedit debitis cupiditate. Laudantium, ab dolore aliquam repudiandae veniam quam.
-        Quas aliquid a magnam pariatur iste esse? Repudiandae tempore earum consectetur illo officia laborum quia repellendus, ipsam facere? Cum dolores dolore quas recusandae placeat vero nam. Ipsam, adipisci minus. Voluptate!
-        Hic architecto voluptatem minus sequi libero optio rem, laboriosam nostrum eaque ipsam excepturi est! Officia laborum ullam illum sed. Possimus molestiae culpa ipsa dicta, veniam error rem neque repudiandae magnam.
-        Voluptas ad obcaecati dolor minima, atque molestiae, aut dolores minus alias optio impedit ex perspiciatis odio consequatur ipsum nemo dolore architecto dicta assumenda. Vel incidunt error necessitatibus dolores repudiandae quae.
-        Ipsam totam natus earum, dolore eos excepturi ut harum fugit illo sequi repudiandae, doloremque, minima veniam sapiente neque rem illum nam culpa impedit ab nesciunt autem debitis. Rerum, repellat magni.
-        Quibusdam vitae quas molestiae necessitatibus perferendis, consequuntur alias fuga, atque, neque reprehenderit accusamus nemo fugiat? Placeat, aspernatur? Fugiat, possimus, quod, ab ipsum eum libero quidem sit ratione ex incidunt vero.
-        Quam officiis quas iure hic voluptas non fugit nobis dolores expedita, unde obcaecati temporibus veritatis modi pariatur vero doloribus quisquam, quae omnis libero atque quo reiciendis. Recusandae architecto dolore laborum?</section>
+        <!-- Formulario -->
+        <section class="container mt-3">
 
+            <div class="col-12 text-center">
+                <span class="d-block fs-6">CONVIÉRTETE EN UN</span>
+                <span class="d-block fw-bold fs-3">ORADOR</span>
+                <P>Anótate como orador para dar una <span class="subrayado-punteado">charla ignite</span>. Cuéntanos de qué quieres hablar!</P>
+            </div>
+
+            <form action="server/procesarCompTicket.html" method="post">
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control">
+                    </div>
+                    <div class="col-md mb-3">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md mb-3">
+                        <textarea name="tema" id="tema" rows="5" class="form-control" placeholder="Sobre qué quieres hablar?"></textarea>
+                        <div class="small text-start mt-2">Recuerda incluir un título para tu charla</div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <input type="submit" value="Enviar" class="color-manzana btn text-white w-100">
+                    </div>
+                </div>
+            </form>
+        </section>
     </main>
 
     <footer>
