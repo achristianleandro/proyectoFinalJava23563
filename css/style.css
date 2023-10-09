@@ -4,6 +4,10 @@
     font-family: 'Roboto', sans-serif;
 }
 
+header .nav-item:hover {
+    opacity: .5!important;
+}
+
 nav>ul>li {
     padding-right:1rem;
 }
@@ -11,6 +15,10 @@ nav>ul>li {
 .carousel-item img {
     height:600px;
     filter: brightness(30%);
+}
+
+.sombra:hover {
+    box-shadow: 10px 10px 20px gray;
 }
 
 .nombre-orador {
@@ -32,4 +40,12 @@ nav>ul>li {
 
 .color-manzana {
     background-color: yellowgreen!important;
+}
+
+footer{
+    background-image: linear-gradient(to right,rgba(28,54,67,1),rgba(29,82,113,1))!important;
+}
+
+footer a:hover{
+    opacity: .5;
 }
