@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Compra tus tickets</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +18,14 @@
 
 </head>
 
-<body>
+<body class="bg-body-secondary">
     <!-- Barra de navegacion -->
     <header>
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand ms-5" href="#">
-                    <img src="images/codoacodo.png" alt="" class="w-25">
+                <a class="navbar-brand ms-5" href="../index.html">
+                    <img src="../images/codoacodo.png" alt="Logo CAC" class="animate__animated animate__flipInX w-25">
                     <span>Conf BsAs</span>
                 </a>
                 <button class="navbar-toggler position-absolute end-0 me-5" type="button" data-bs-toggle="collapse"
@@ -42,19 +43,19 @@
                             <li class="nav-item">
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#conferencia">La conferencia</a>
+                                <a class="nav-link" href="../index.html#conferencia">La conferencia</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#oradores">Los oradores</a>
+                                <a class="nav-link" href="../index.html#oradores">Los oradores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#lugar-fecha">El lugar y la fecha</a>
+                                <a class="nav-link" href="../index.html#lugar-fecha">El lugar y la fecha</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#form-oradores">Conviértete en orador</a>
+                                <a class="nav-link" href="../index.html#form-oradores">Conviértete en orador</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-success" href="ticket/comprarTicket.html">Comprar Ticket</a>
+                                <a class="nav-link text-success" href="#">Comprar Ticket</a>
                             </li>
                         </ul>
                     </span>
@@ -65,19 +66,25 @@
 
     <main>
 
-        <!-- Pedido de informacion -->
+        <!-- Pedido de información -->
         <section class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col w50">
-                    <img src="../images/codoacodo.png" alt="Codo a codo">
+                    <img src="../images/codoacodo.png" alt="Codo a codo" id="img-cac-compra-ticket" class="animate__animated animate__zoomIn">
                 </div>
-                <div class="col"></div>
             </div>
         </section>
+    
+        <section class="text-center">
+            <h2 class="fw-bold">VALOR GENERAL: $<span id="valor-entrada" class="fw-bold"></span></h2>
+            <p>Los jubilados, egresados y estudiantes de nuestra institución tendrán un descuento en el importe total de su compra</p>
+        </section>
 
-        <!-- Formulario comprar ticket -->
+        <!-- Formulario para comprar ticket -->
         <section class="container my-3">
-            <form action="../server/procesarCompTicket.html" method="post" class="needs-validation" novalidate>
+            <p class="fs-5 mt-2 fw-bold">Para continuar con la compra de sus tickets complete el siguiente formulario.</p>
+            <form action="javascript:alert('Compra exitosa');" method="post" class="needs-validation" novalidate>
+                <fieldset class="border border-success p-2" style="--bs-border-opacity: .5;">
                 <div class="row">
                     <div class="col-md mb-3">
                         <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
@@ -92,54 +99,60 @@
                             Debe ingresar su apellido
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Ingrese un Email válido.
+                        </div>
+                    </div>
                 </div>
                 <div class="row mb-3">
+                    
+                    <div class="col-md mb-3">
+                        <select class="form-select" id="desc" onchange="calcTotal()">
+                            <option value="50">Egresado: 50% off</option>
+                            <option value="30">Estudiante: 30% off</option>
+                            <option value="10">Jubilado: 10% off</option>
+                            <option value="0">Público general</option>
+                        </select>
+                    </div>
+
                     <div class="col-md mb-3">
                         <input type="number" name="cant" id="cant" onchange="calcTotal()" onkeyup="calcTotal()"
                             placeholder="Cantidad Tickets" class="form-control" required>
                         <div class="invalid-feedback">
                             Debe ingresar una cantidad
                         </div>
+                    </div>
 
-                        <div class="small p-1">
-                            Valor del ticket: $1000
-                        </div>
-                    </div>
-                    <div class="col-md mb-3">
-                        <select class="form-select" id="desc" onchange="calcTotal()">
-                            <option value="50">Estudiante: 50% off</option>
-                            <option value="30">Profesional: 30% off</option>
-                            <option value="10">Público general: 10% off</option>
-                        </select>
-                    </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col mb-3 ">
-                        Total a pagar $: <span id="total">0</span>
+                    <div class="col text-center mb-3 fs-1">
+                        <p id="importe-texto" class="d-none">IMPORTE TOTAL: $</p>
+                        <span id="total"></span>
                     </div>
 
                 </div>
                 <div class="row mb-3">
                     <div class="d-flex justify-content-center column-gap-4">
-                        <input type="reset" value="Borrar" class="btn btn-danger">
-                        <input type="submit" value="Comprar" class="btn btn-primary">
+                        <input type="reset" value="Borrar" class="btn btn-danger" onclick="resetCant()">
+                        <input type="submit" value="Comprar" id="submit" class="btn btn-secondary disabled">
                     </div>
             </div>
-
+        </fieldset>
             </form>
         </section>
     </main>
 
     <!-- Pie de página -->
-    <footer
-        class="d-flex flex-column flex-lg-row justify-content-center align-items-center fw-bold column-gap-4 row-gap-3 py-4">
-        <a class="link-light text-decoration-none" href="#">Preguntas frecuentes</a>
-        <a class="link-light text-decoration-none" href="#">Contáctanos</a>
-        <a class="link-light text-decoration-none" href="#">Prensa</a>
-        <a class="link-light text-decoration-none" href="#">Conferencias</a>
-        <a class="link-light text-decoration-none" href="#">Términos y condiciones</a>
-        <a class="link-light text-decoration-none" href="#">Privacidad</a>
-        <a class="link-light text-decoration-none" href="#">Estudiantes</a>
+    <footer class="d-flex flex-column flex-lg-row justify-content-center align-items-center fw-bold column-gap-4 row-gap-3 py-4">
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Preguntas frecuentes</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Contáctanos</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Prensa</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Conferencias</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Términos y condiciones</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Privacidad</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Estudiantes</a>
         </div>
 
     </footer>

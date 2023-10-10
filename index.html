@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Conf Bs As</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,14 +16,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-body-secondary">
     <!-- Barra de navegacion -->
     <header>
 
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand ms-5" href="#">
-                    <img src="images/codoacodo.png" alt="" class="w-25">
+                    <img src="images/codoacodo.png" alt="Logo CAC" class="animate__animated animate__flipInX w-25">
                     <span>Conf BsAs</span>
                 </a>
                 <button class="navbar-toggler position-absolute end-0 me-5" type="button" data-bs-toggle="collapse"
@@ -90,9 +91,9 @@
                                             esperamos!
                                         </p>
                                         <div>
-                                            <a href="#" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
+                                            <a href="#form-oradores" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
                                                 orador</a>
-                                            <a href="#" class="btn btn-success">Comprar tickets</a>
+                                            <a href="tickets/comprarTicket.html" class="btn btn-success">Comprar tickets</a>
                                         </div>
                                     </div>
                                 </div>
@@ -116,9 +117,9 @@
                                             esperamos!
                                         </p>
                                         <div>
-                                            <a href="#" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
+                                            <a href="#form-oradores" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
                                                 orador</a>
-                                            <a href="#" class="btn btn-success">Comprar tickets</a>
+                                            <a href="tickets/comprarTicket.html" class="btn btn-success">Comprar tickets</a>
                                         </div>
                                     </div>
                                 </div>
@@ -142,9 +143,9 @@
                                             esperamos!
                                         </p>
                                         <div>
-                                            <a href="#" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
+                                            <a href="#form-oradores" class="btn btn-outline-light me-2 my-2 my-lg-0">Quiero ser
                                                 orador</a>
-                                            <a href="#" class="btn btn-success">Comprar tickets</a>
+                                            <a href="tickets/comprarTicket.html" class="btn btn-success">Comprar tickets</a>
                                         </div>
                                     </div>
                                 </div>
@@ -252,19 +253,19 @@
                     qué quieres hablar!</P>
             </div>
 
-            <form action="#" method="get">
+            <form action="javascript:alert('Formulario enviado con exito');" method="get">
                 <div class="row">
                     <div class="col-md mb-3">
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
                     </div>
                     <div class="col-md mb-3">
-                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md mb-3">
                         <textarea name="tema" id="tema" rows="5" class="form-control"
-                            placeholder="Sobre qué quieres hablar?"></textarea>
+                            placeholder="Sobre qué quieres hablar?" required></textarea>
                         <div class="small text-start mt-2">Recuerda incluir un título para tu charla</div>
 
                     </div>
@@ -281,13 +282,13 @@
     <!-- Pie de página -->
     <footer
         class="d-flex flex-column flex-lg-row justify-content-center align-items-center fw-bold column-gap-4 row-gap-3 py-4">
-        <a class="link-light text-decoration-none" href="#">Preguntas frecuentes</a>
-        <a class="link-light text-decoration-none" href="#">Contáctanos</a>
-        <a class="link-light text-decoration-none" href="#">Prensa</a>
-        <a class="link-light text-decoration-none" href="#">Conferencias</a>
-        <a class="link-light text-decoration-none" href="#">Términos y condiciones</a>
-        <a class="link-light text-decoration-none" href="#">Privacidad</a>
-        <a class="link-light text-decoration-none" href="#">Estudiantes</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Preguntas frecuentes</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Contáctanos</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Prensa</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Conferencias</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Términos y condiciones</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Privacidad</a>
+        <a class="link-light text-decoration-none" href="javascript:alert('Esta página no se encuentra disponible');">Estudiantes</a>
         </div>
 
     </footer>
