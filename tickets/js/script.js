@@ -19,6 +19,7 @@
 })()
 
 const precio = 1000
+let val = 0
 document.getElementById("valor-entrada").innerHTML=precio
 
 function calcTotal() {
@@ -35,11 +36,13 @@ function calcTotal() {
 
     let desc = document.getElementById("desc").value
     total = total - (total * desc / 100)
+    val = total
 
     // document.getElementById("total").style.color="red"
     // document.getElementById("total").className = "bg-info p-1"
     document.getElementById("total").innerHTML = total
     document.getElementById("submit").className = "btn btn-primary"
+    document.getElementById("btn-resumen").className = "btn btn-primary"
 
   } else if (cant < 0) {
     document.getElementById("importe-texto").className="d-none"
@@ -51,6 +54,7 @@ function calcTotal() {
     // document.getElementById("total").className = ""
     document.getElementById("total").innerHTML = "0"
     document.getElementById("submit").className = "btn btn-secondary disabled"
+    document.getElementById("btn-resumen").className = "btn btn-secondary disabled"
 
   }
 }
@@ -61,4 +65,10 @@ function resetCant() {
   document.getElementById("total").className = ""
   document.getElementById("total").innerHTML = ""
   document.getElementById("submit").className = "btn btn-secondary disabled"
+  document.getElementById("btn-resumen").className = "btn btn-secondary disabled"
+}
+
+function mostrarResumen(){
+  document.getElementById("total-resumen").innerHTML = val
+  
 }
