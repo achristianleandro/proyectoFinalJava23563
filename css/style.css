@@ -43,6 +43,9 @@ nav>ul>li {
 }
 
 footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     background-image: linear-gradient(to right,rgba(28,54,67,1),rgba(29,82,113,1))!important;
 }
 

@@ -19,6 +19,8 @@
 })()
 
 const precio = 1000
+let audiencia
+let cantEntradas
 let val = 0
 document.getElementById("valor-entrada").innerHTML=precio
 
@@ -26,25 +28,37 @@ function calcTotal() {
   
   console.log("Ingreso a calcTotal")
 
-  let cant = document.getElementById("cant").value
-  console.log(cant)
+  cantEntradas = document.getElementById("cant").value
+  console.log(cantEntradas)
 
-  if (cant >= 1) {
+  if (cantEntradas >= 1) {
     document.getElementById("importe-texto").className="d-inline-block"
-    let total = cant * precio
+    // let total = cantEntradas * precio
+    let total = this.procesarPrecio()
     console.log(total)
 
-    let desc = document.getElementById("desc").value
-    total = total - (total * desc / 100)
+    // let desc = document.getElementById("desc").value
+    // total = total - (total * desc / 100)
+    let desc = this.procesarDescuento(total)
+    total = total - desc
     val = total
+
 
     // document.getElementById("total").style.color="red"
     // document.getElementById("total").className = "bg-info p-1"
     document.getElementById("total").innerHTML = total
     document.getElementById("submit").className = "btn btn-primary"
-    document.getElementById("btn-resumen").className = "btn btn-primary"
+  
 
-  } else if (cant < 0) {
+    
+    if(document.forms['form-compra'].reportValidity()){
+      document.getElementById("btn-resumen").className = "btn btn-primary"
+    } else{
+      document.getElementById("btn-resumen").className = "btn btn-secondary disabled"
+    }
+    
+
+  } else if (cantEntradas < 0) {
     document.getElementById("importe-texto").className="d-none"
     // document.getElementById("total").className = "bg-danger p-1"
     document.getElementById("total").innerHTML = "Ha ingresado un número negativo"
@@ -59,6 +73,10 @@ function calcTotal() {
   }
 }
 
+function cambiarSelect(descuento) {
+  document.getElementById('desc').value = descuento
+  this.calcTotal()
+}
 
 function resetCant() {
   document.getElementById("importe-texto").className="d-none"
@@ -68,7 +86,44 @@ function resetCant() {
   document.getElementById("btn-resumen").className = "btn btn-secondary disabled"
 }
 
+function procesarPrecio(){
+  return precio * cantEntradas
+}
+
+function procesarDescuento(precioTotal){
+  let descPorciento = document.getElementById("desc").value
+  return precioTotal * (descPorciento / 100)
+}
+
+function procesarAudiencia(){
+  switch(document.getElementById('desc').value){
+    case '80': 
+      audiencia = "Estudiante"
+      break;
+    case '50':
+      audiencia = "Trainee";
+      break;
+    case '15':
+      audiencia = "Junior";
+      break;
+    default:
+      audiencia = 'Público general';
+  }
+}
+
 function mostrarResumen(){
+  let importe = this.procesarPrecio()
+  let descuento = this.procesarDescuento(importe)
+
+  this.procesarAudiencia();
+  document.getElementById('audiencia').innerHTML = audiencia;
+
+  document.getElementById('cant-entradas').innerHTML = cantEntradas;
+
+  document.getElementById('importe').innerHTML = importe
+
+  document.getElementById('descuento').innerHTML = descuento
+
   document.getElementById("total-resumen").innerHTML = val
   
 }

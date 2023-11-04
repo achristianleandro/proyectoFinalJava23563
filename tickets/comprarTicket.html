@@ -67,6 +67,7 @@
     <main>
 
         <!-- Pedido de información -->
+        <!-- 
         <section class="container d-flex justify-content-center">
             <div class="row">
                 <div class="col w50">
@@ -81,30 +82,53 @@
             <p>Los jubilados, egresados y estudiantes de nuestra institución tendrán un descuento en el importe total de
                 su compra</p>
         </section>
+        -->
+        <div class="d-flex flex-wrap justify-content-center row-gap-2 column-gap-3 my-4">
+            <div onclick="cambiarSelect(80)"
+                class="sombra text-center bg-white border border-primary-subtle border-2 p-5">
+                <h4 class="fw-bold">Estudiante</h4>
+                <p>Tienen un descuento</p>
+                <p class="fw-bold">80%</p>
+                <p>* presentar documentacion</p>
+            </div>
+            <div onclick="cambiarSelect(50)" class="sombra text-center bg-white border border-primary border-2 p-5">
+                <h4 class="fw-bold">Trainee</h4>
+                <p>Tienen un descuento</p>
+                <p class="fw-bold">50%</p>
+                <p>* presentar documentacion</p>
+            </div>
+            <div onclick="cambiarSelect(15)" class="sombra text-center bg-white border border-warning border-2 p-5">
+                <h4 class="fw-bold">Junior</h4>
+                <p>Tienen un descuento</p>
+                <p class="fw-bold">15%</p>
+                <p>* presentar documentacion</p>
+            </div>
+        </div>
 
         <!-- Formulario para comprar ticket -->
         <section class="container my-3">
             <p class="fs-5 mt-2 fw-bold">Para continuar con la compra de sus tickets complete el siguiente formulario.
             </p>
-            <form action="javascript:alert('Compra exitosa');" method="post" class="needs-validation" novalidate>
+            <form action="javascript:alert('Compra exitosa');" method="post" id="form-compra" class="needs-validation"
+                novalidate>
                 <fieldset class="border border-success p-2" style="--bs-border-opacity: .5;">
                     <div class="row">
                         <div class="col-md mb-3">
-                            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control"
+                            <input type="text" onchange="calcTotal()" name="nombre" id="nombre" placeholder="Nombre" class="form-control"
                                 required>
                             <div class="invalid-feedback">
                                 Debe ingresar su nombre
                             </div>
                         </div>
                         <div class="col-md mb-3">
-                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
+                            <input type="text" onchange="calcTotal()" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
                                 required>
                             <div class="invalid-feedback">
                                 Debe ingresar su apellido
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email"
+                            <input type="email" onchange="calcTotal()" class="form-control" id="exampleFormControlInput1" placeholder="Email"
                                 required>
                             <div class="invalid-feedback">
                                 Ingrese un Email válido.
@@ -126,6 +150,7 @@
                                 <option value="80">Estudiante: 80% off</option>
                                 <option value="50">Trainee: 50% off</option>
                                 <option value="15">Junior: 15% off</option>
+                                <option value="0">Público general</option>
                             </select>
                         </div>
 
@@ -157,8 +182,19 @@
                                             <h5 class="modal-title" id="exampleModalLongTitle">Resumen de compra</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <p>IMPORTE TOTAL: $ <span id="total-resumen"></span></p>
-                                            <p>Para continuar con la compra presione en "Comprar", en caso de querer modificar la cantidad de entradas presione en "Cerrar" y volverá al menú anterior</p>
+                                            <div class="text-center w50">
+                                                <img src="../images/codoacodo.png" alt="Codo a codo" id="img-cac-compra-ticket"
+                                                    class="animate__animated animate__zoomIn">
+                                            </div>
+                                            <p>Tipo de audiencia: <span id="audiencia"></span></p>
+                                            <p>Cantidad de entradas: <span id="cant-entradas"></span></p>
+                                            <p>Importe: $<span id="importe"></span></p>
+                                            <p>Descuento: $<span id="descuento"></span></p>
+                                            <h4 class="text-center fw-bold border border-success border-2">IMPORTE
+                                                TOTAL: $ <span id="total-resumen"></span></h4>
+                                            <p>Para continuar con la compra presione en "Comprar", en caso de querer
+                                                modificar la cantidad de entradas presione en "Cerrar" y volverá al menú
+                                                anterior</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
@@ -180,7 +216,7 @@
 
     <!-- Pie de página -->
     <footer
-        class="d-flex flex-column flex-lg-row justify-content-center align-items-center fw-bold column-gap-4 row-gap-3 py-4">
+        class="d-flex flex-column flex-lg-row justify-content-center align-items-center fw-bold column-gap-4 row-gap-3 py-4 navbar navbar-fixed-bottom">
         <a class="link-light text-decoration-none"
             href="javascript:alert('Esta página no se encuentra disponible');">Preguntas frecuentes</a>
         <a class="link-light text-decoration-none"
